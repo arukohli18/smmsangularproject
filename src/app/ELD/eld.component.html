@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #688696;
+      text-align: left;
+    }
+
+    .form-box {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .form-select,
+    .form-control {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      margin-top: 20px;
+      text-align: right;
+      
+    }
+
+    .button button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+    .button button:hover {
+      background-color: #0056b3;
+    }
+    #myheading{
+        display:flex;
+        justify-content: space-between;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <form #myForm="ngForm" (ngSubmit)="saveEmployee(myForm.value)">  
+        <div id="myheading">
+      <h2>Add Asset Maintenance</h2><br>
+     
+      <a id="back1" [routerLink]="'/maintanence'" ><button class="btn btn-success pull-right" > Back</button></a> 
+        </div>
+      <div class="mb-3">
+        <label for="question1" class="form-label">1. All cable terminations are tight & properly connected in ELD.(Tightened)</label>
+      </div> 
+      <div>
+        <select ngModel class="form-select" id="question1" name="cable_terminations" aria-label="Default select example">
+          <option selected>Yes/No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select> <br> 
+      </div>
+
+      <div class="mb-3">
+        <label  for="question2" class="form-label">2. Checking the ELD equipment free from dust.</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question2" name="equipment_free_dust" aria-label="Default select example">
+          <option selected>Yes/No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question3" class="form-label">3. Check that "Bus Bar" indication is available. If indication is not available then check the fuses of positive and negative bus bars of the channel. (Checked)</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question3" name="bus_bar_indicator" aria-label="Default select example">
+          <option selected>Yes/NO</option>
+          <option value="YES">Yes</option>
+          <option value="No">No</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question4" class="form-label">4. Check and ensure that fault totalizer (counter) of each channel increase after each reset operation. (Checked Counter reading)</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question4" name="fault_totalizer" aria-label="Default select example">
+          <option selected>Ok/Not Ok</option>
+          <option value="Ok">Ok</option>
+          <option value="Not Ok">Not Ok</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question5" class="form-label">5. Ensure bus bar name sticker on ELD channel for identification.</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question5" name="bus_bar_sticker" aria-label="Default select example">
+          <option selected>Available/Not Available</option>
+          <option value="Available">Available</option>
+          <option value="Not Available">Not Available</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question6" class="form-label">6. Ensure earth connection soldered on earth side for corrosion free connection.</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question6" name="earth_conn_corrosion" aria-label="Default select example">
+          <option selected>Ok/Not Ok</option>
+          <option value="Ok">Ok</option>
+          <option value="Not Ok">Not Ok</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question7" class="form-label">7. Ensure that Reference value of resistance has been set within permissible limit. The insulation resistance is to be set as per the table attached (Table 1)</label>
+      </div>
+      <div>
+        <input ngModel type="text" class="form-control" id="question7" name="resistance_value" placeholder="ohm"> 
+      </div> <br>
+
+      <div class="mb-3">
+        <label for="question8" class="form-label">8. Check the LED indication of each channel module of earth leakage detector & ensure that “NORMAL LED” is glowing. If “FAULT LED” is glowing, take the suitable corrective action to remove the earth fault immediately. (Normal)</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question8" name="led_indication" aria-label="Default select example">
+          <option selected>Yes/No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question9" class="form-label">9. Earth connection to ELD through E1 and E2 should be at two different points. Preferably one on Copper Ring and another on earth pit on which MEB wires/Cu tape are welded. If difference in earth resistance at two points increase more than 10 ohm then all channels will show earth fault which indicate poor earth resistance or loose connectivity. Same to be attended.</label>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question9" name="earth_conn_eld" aria-label="Default select example">
+          <option selected>Yes/No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select> <br>
+      </div>
+
+      <div class="mb-3">
+        <label for="question10" class="form-label">10. Fault LED if glowing Red it means I) ELD module may be defective-ELD meter will show infinite but will not reset. Replace defective module. Or II) AC supply is not available. Attend to it. Or III) If meter showing some leakage resistance, ELD module is working and leakage is there in the circuit and it needs to be attended.</label>
+      </div>
+      <div>
+        <label>a. Defective</label> <br>
+      </div>
+      <div>
+        <select ngModel class="form-select" id="question10" name="fault_led" aria-label="Default select example">
+          <option selected>Yes/No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select> <br>
+      </div>
+
+      <div class="button">
+        <button class="btn btn-primary me-md-2" type="button">Back</button> 
+        <button class="btn btn-primary" >Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
